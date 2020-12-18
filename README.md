@@ -21,3 +21,30 @@ It̂o's lemma allows us to find closed-form solution to some SDEs and exactly ca
 ### Monte-Carlo simulation 
 Monte-Carlo simulation is a computational algorithm that relies on random sampling to obtain numerical result. Pseude-random numbers obtained from Numpy generator were used to simulate randomness
 
+## System requirements
+Most of the project (except population dynamics modelling) was implemented in Python using laptop with the following resources:
+Intel(R) Core(TM) i5-8300H CPU @ 2.30Ghz, 8GB RAM, Windows 10
+
+Python and libraries:
+- Python 3.8.5, 
+- Numpy 1.19.1
+- Scipy 1.5.0
+- Matplotlib 3.3.1
+- Seaborn 0.11.0
+
+Population dynamics modelling was implemented in Google colab (with free access). Language and libraries versions are the following:
+- Python 3.6.9
+- Numpy 1.19.4
+- Scipy 1.4.1
+- Matplotlib 3.2.2
+- Seaborn 0.11.0
+- Numba 0.48.0
+
+## API
+
+## Results
+
+## References 
+
+1. Allen, Edward. (2007). Modeling with Itô Stochastic Differential Equations. 22. 10.1007/978-1-4020-5953-7. 
+2. Choongbum Lee, Peter Kempthorne, Vasily Strela, Jake Xia. 18.S096 Topics in Mathematics with Applications in Finance. Fall 2013. Massachusetts Institute of Technology: MIT OpenCourseWare, https://ocw.mit.edu/. License: Creative Commons BY-NC-SA.
