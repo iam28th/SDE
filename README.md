@@ -105,7 +105,47 @@ plt.plot(time, paths.mean(axis=0), linewidth=3, label='Average of 1000 trajector
 plt.plot(time, paths.var(ddof=1, axis=0), linewidth=3, label='Variance of 1000 trajectories')  
 ```
 ![Integral](img/integral.png)
+#### 3. Stochastic differential equations
+Consider the following SDE:
 
+<a href="https://www.codecogs.com/eqnedit.php?latex=\begin{cases}&space;dY(t)&space;=&space;f\cdot&space;dt&space;&plus;&space;g\cdot&space;dW(t)=\left(&space;\frac{1}{4}&space;Y(t)&space;&plus;&space;\frac{1}{32}Y^2(t)&space;\right)dt&space;&plus;&space;\frac{1}{4}Y(t)dW(t),\&space;\\&space;Y(0)&space;=\frac{1}{2}&space;\end{cases}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\begin{cases}&space;dY(t)&space;=&space;f\cdot&space;dt&space;&plus;&space;g\cdot&space;dW(t)=\left(&space;\frac{1}{4}&space;Y(t)&space;&plus;&space;\frac{1}{32}Y^2(t)&space;\right)dt&space;&plus;&space;\frac{1}{4}Y(t)dW(t),\&space;\\&space;Y(0)&space;=\frac{1}{2}&space;\end{cases}" title="\begin{cases} dY(t) = f\cdot dt + g\cdot dW(t)=\left( \frac{1}{4} Y(t) + \frac{1}{32}Y^2(t) \right)dt + \frac{1}{4}Y(t)dW(t),\ \\ Y(0) =\frac{1}{2} \end{cases}" /></a>
+
+Obtain 1000 solutions using Euler's and Milstein's method and compare average of 1000 solutions for both methods with Scipy-provided solver for a corresponing determenistic ODE:
+```python
+from StoCalc import sde
+np.random.seed(0)
+
+def dyE(y, dt, dW):
+    f = 1/4 * y + 1/32 * y**2
+    g = 1/4 * y
+    return (f, g) 
+
+def dyM(y, dt, dW):
+    f = 1/4 * y + 1/32 * y**2
+    g = 1/4 * y
+    dgdy = 1/4   # need to provide additional derivative for Milstein's method
+    return f, g, dgdy
+
+y0 = 1/2
+step = 1/5  # step size is large to see the difference between methods
+t = (0, 5)
+
+time, pathsE = sde(dyE, y0, t, step, method='euler')  # Euler's method
+time, pathsM = sde(dyM, y0, t, step, method='milstein')  # Milstein's method
+
+# determenistic equation
+from scipy.integrate import odeint
+
+def det_dydt(y, t):
+    return 1/4 * y + 1/32 * y**2
+
+sol = odeint(det_dydt, y0, time)
+
+plt.plot(time, pathsE.mean(axis=0), color='blue', label="Euler's method")
+plt.plot(time, pathsM.mean(axis=0), color='red', label="Milstein's method")
+plt.plot(time, sol, color='green', label='Scipy determenistic solution')
+```
+![SDE](img/sde.png)
 ## References 
 
 1. Allen, Edward. (2007). Modeling with Itô Stochastic Differential Equations. 22. 10.1007/978-1-4020-5953-7. 
