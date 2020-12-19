@@ -26,7 +26,7 @@ Most of the project (except population dynamics modelling) was implemented using
 Intel(R) Core(TM) i5-8300H CPU @ 2.30Ghz, 8GB RAM, Windows 10
 
 Python and libraries:
-- Python 3.8.5, 
+- Python 3.8.5
 - Numpy 1.19.1
 - Scipy 1.5.0
 - Matplotlib 3.3.1
