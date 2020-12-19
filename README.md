@@ -41,7 +41,7 @@ Population dynamics modelling was implemented in Google colab (with free access)
 - Numba 0.48.0
 
 ## Results and examples
-There's a small library for stochastic modelling and calculus: StoCalc.py. It is built atop of scipy and numpy and provides functions for modelling stochastic processes and integrals, calculation of stochastic integral expectations, and solving SDEs. 
+There's a small library for stochastic modelling and calculus: StoCalc.py. It is built atop of Scipy and Numpy and provides functions for modelling stochastic processes and integrals, calculation of stochastic integral expectations, and solving SDEs. 
 #### 1. Weiner process
 Obtain one Weiner process sample path on interval \[0, 50\] with step = 5:
 ```python
@@ -145,6 +145,7 @@ plt.plot(time, pathsE.mean(axis=0), color='blue', label="Euler's method")
 plt.plot(time, pathsM.mean(axis=0), color='red', label="Milstein's method")
 plt.plot(time, sol, color='green', label='Scipy determenistic solution')
 ```
+See [examples](Examples.ipynb) for more.
 ![SDE](img/sde.png)
 ## References 
 
