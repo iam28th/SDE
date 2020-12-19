@@ -14,12 +14,12 @@ Let F be a function F(t, X(t)) and X be a stochastic process such that
 
 then (assuming the necessary assumptions) function F satisfies the following SDE:
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=dF&space;=&space;(\frac{\partial&space;F}{\partial&space;t}&space;&plus;&space;\mu&space;\frac{\partial&space;F}{\partial&space;x}&space;&plus;&space;\frac{1}{2}\sigma^2&space;\frac{\partial^2&space;F}{\partial&space;x^2})dt&space;&plus;&space;\sigma&space;\frac{\partial&space;F}{\partial&space;x}&space;dW" target="_blank"><img src="https://latex.codecogs.com/gif.latex?dF&space;=&space;(\frac{\partial&space;F}{\partial&space;t}&space;&plus;&space;\mu&space;\frac{\partial&space;F}{\partial&space;x}&space;&plus;&space;\frac{1}{2}\sigma^2&space;\frac{\partial^2&space;F}{\partial&space;x^2})dt&space;&plus;&space;\sigma&space;\frac{\partial&space;F}{\partial&space;x}&space;dW" title="dF = (\frac{\partial F}{\partial t} + \mu \frac{\partial F}{\partial x} + \frac{1}{2}\sigma^2 \frac{\partial^2 F}{\partial x^2})dt + \sigma \frac{\partial F}{\partial x} dW" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=dF&space;=&space;\left(\frac{\partial&space;F}{\partial&space;t}&space;&plus;&space;\mu&space;\frac{\partial&space;F}{\partial&space;x}&space;&plus;&space;\frac{1}{2}\sigma^2&space;\frac{\partial^2&space;F}{\partial&space;x^2}\right)dt&space;&plus;&space;\sigma&space;\frac{\partial&space;F}{\partial&space;x}&space;dW" target="_blank"><img src="https://latex.codecogs.com/gif.latex?dF&space;=&space;\left(\frac{\partial&space;F}{\partial&space;t}&space;&plus;&space;\mu&space;\frac{\partial&space;F}{\partial&space;x}&space;&plus;&space;\frac{1}{2}\sigma^2&space;\frac{\partial^2&space;F}{\partial&space;x^2}\right)dt&space;&plus;&space;\sigma&space;\frac{\partial&space;F}{\partial&space;x}&space;dW" title="dF = \left(\frac{\partial F}{\partial t} + \mu \frac{\partial F}{\partial x} + \frac{1}{2}\sigma^2 \frac{\partial^2 F}{\partial x^2}\right)dt + \sigma \frac{\partial F}{\partial x} dW" /></a>
 
 Itô's lemma allows us to find closed-form solution to some SDEs and exactly calculate some stochastic integrals.
 
-### Monte-Carlo simulation 
-Monte-Carlo simulation is a computational algorithm that relies on random sampling to obtain numerical result. Pseude-random numbers obtained from Numpy generator were used to simulate randomness
+### Monte Carlo simulation 
+Monte Carlo simulation is a computational algorithm that relies on random sampling to obtain numerical result. Pseude-random numbers obtained from Numpy generator were used to simulate randomness
 
 ## System requirements
 Most of the project (except population dynamics modelling) was implemented using laptop with the following resources:
@@ -67,7 +67,7 @@ plt.plot(time1, proc1[0], label='step=5')
 plt.plot(time2, proc2, label='step=0.5')
 ```
 ![Brownian bridge 0.5](img/bridge05.png)
-#### 2. It̂o's stochastic integrals
+#### 2. Itô's stochastic integrals
 Consider the following It̂o's integral:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=I(f)&space;=&space;\int_0^1f(t,&space;W(t))dW(t)&space;=&space;\int_0^1t&space;\cdot&space;e^{W(t)}dW(t)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?I(f)&space;=&space;\int_0^1f(t,&space;W(t))dW(t)&space;=&space;\int_0^1t&space;\cdot&space;e^{W(t)}dW(t)" title="I(f) = \int_0^1f(t, W(t))dW(t) = \int_0^1t \cdot e^{W(t)}dW(t)" /></a>
