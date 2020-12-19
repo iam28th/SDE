@@ -151,7 +151,7 @@ See [examples](Examples.ipynb) for more.
 #### 4. Population dynamics applications
 Finally, Itô's theory was applied to the population biology system of two populations that are in competition (see [Modelling.ipynb](Modelling.ipynb) for the exact problem formulation).
 
-The stochastic model was compared to the corresponding determenistic model, and the solutions did not exactly match. Most noticable is the fact that the mean population size estimation is much different from the determenistic result, because in the stochastic model there are 2 possible end states and both populations have a probability to go extinct. The stochastic model was used to estimate extinction probabilities, extinction time and conditional probability density for both populations. Mean conditional extincton time for the second population is also less then extinction time from the determenistic model because of the chance to survive:
+The stochastic model was compared to the corresponding determenistic model, and the solutions did not exactly match. Most noticable is the fact that the mean population size estimation is much different from the determenistic result, because in the stochastic model there are 2 possible end states and both populations have a probability to go extinct. The stochastic model was used to estimate extinction probabilities, extinction time and conditional probability density for sizes of both populations. Mean conditional extincton time for the second population is also less then extinction time from the determenistic model because of the chance to survive:
 ![mean_TE](img/mean_TE.png)
 
 See [Modelling.ipynb](Modelling.ipynb) for conditional probability densities and modelling source code.
