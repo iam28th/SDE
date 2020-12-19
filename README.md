@@ -147,6 +147,13 @@ plt.plot(time, sol, color='green', label='Scipy determenistic solution')
 ```
 See [examples](Examples.ipynb) for more.
 ![SDE](img/sde.png)
+#### 4. Population dynamics applications
+Finally, It̂o's theory was applied to the population biology system of two populations that are in competition (see [Modelling.ipynb](Modelling.ipynb) for the exact problem formulation).
+
+The stochastic model was compared to the corresponding determenistic model, and the solutions did not exactly match. Most noticable is the fact that the mean population size estimation is much different from the determenistic result, because in the stochastic model there are 2 possible end states and both populations have a probability to go extinct. The stochastic model was used to estimate extinction probabilities, extinction time and conditional probability density for both populations. Mean conditional extincton time for the second population is also less then extinction time from the determenistic model because of the chance to survive:
+![mean_TE](img/mean_TE.png)
+
+See [Modelling.ipynb](Modelling.ipynb) for conditional probability densities and modelling source code.
 ## References 
 
 1. Allen, Edward. (2007). Modeling with Itô Stochastic Differential Equations. 22. 10.1007/978-1-4020-5953-7. 
