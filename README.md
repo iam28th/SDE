@@ -40,9 +40,71 @@ Population dynamics modelling was implemented in Google colab (with free access)
 - Seaborn 0.11.0
 - Numba 0.48.0
 
-## API
+## Results and examples
+There's a small library for stochastic modelling and calculus: StoCalc.py. It is built atop of scipy and numpy and provides functions for modelling stochastic processes and integrals, calculation of stochastic integral expectations, and solving SDEs. 
+#### 1. Weiner process
+Obtain one Weiner process sample path on interval \[0, 50\] with step = 5:
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from StoCalc import weiner_process
 
-## Results
+np.random.seed(0)
+
+time1, proc1 = weiner_process(t0=0, T=T, m=1, N=11)
+plt.plot(time1, proc1)
+```
+![Brownian bridge 5](img/bridge5.png)
+
+Add more points to this trajectory (so that step would be 0.5):
+```python
+from StoCalc import brownian_bridge
+
+new_points = np.arange(0, T, 0.5)
+time2, proc2 = brownian_bridge(np.array([time1, proc1[0]]), new_points)
+
+plt.plot(time1, proc1[0], label='step=5')
+plt.plot(time2, proc2, label='step=0.5')
+```
+![Brownian bridge 0.5](img/bridge05.png)
+#### 2. It̂o's stochastic integrals
+Consider the following It̂o's integral:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=I(f)&space;=&space;\int_0^1f(t,&space;W(t))dW(t)&space;=&space;\int_0^1t&space;\cdot&space;e^{W(t)}dW(t)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?I(f)&space;=&space;\int_0^1f(t,&space;W(t))dW(t)&space;=&space;\int_0^1t&space;\cdot&space;e^{W(t)}dW(t)" title="I(f) = \int_0^1f(t, W(t))dW(t) = \int_0^1t \cdot e^{W(t)}dW(t)" /></a>
+
+Calculate first 3 moments, i.e. E(I(f)), E(I²(f)), E(I³(f)), with step=0.01 and different sample size:
+```python
+from StoCalc import ito_int_expect
+np.random.seed(0)
+
+def f(t, Wt):
+    return t * np.exp(Wt)
+
+sample_sizes = (10, 100, 10000)
+ks = (1, 2, 3)  # moment orders
+for size in sample_sizes:
+    tmp = [size]
+    for k in ks:
+        tmp.append(ito_int_expect(f, 0, 1, k, m=size))
+    print(*tmp, sep='\t')  
+# output:
+# 10     0.124  1.163  0.106
+# 100    0.116  0.729  0.859
+# 10000  0.009  1.291  5.864
+```
+Generate 1000 samples, plot the first 3 of them, average and variance of trajectories:
+```python
+from StoCalc import ito_int_paths
+np.random.seed(0)
+
+time, paths = ito_int_paths(f, 0, 1, step=0.01, m=1000)
+
+for p in paths[:3]:
+    plt.plot(time, p, linewidth=1)
+plt.plot(time, paths.mean(axis=0), linewidth=3, label='Average of 1000 trajectories')
+plt.plot(time, paths.var(ddof=1, axis=0), linewidth=3, label='Variance of 1000 trajectories')  
+```
+![Integral](img/integral.png)
 
 ## References 
 
