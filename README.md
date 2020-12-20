@@ -1,7 +1,7 @@
 # Numerical Monte Carlo solution to the system of stochastic differential equations of population dynamics
 
 ## Goals and objectives
-The aim of this project was to apply Itô's stochastic differential equations (SDEs) for the particular problem from population biology and to compare a stochastic competition model model with a deterministic one. In order to gain better understanding of this theory, several problems were covered:
+The aim of this project was to apply Itô's stochastic differential equations (SDEs) theory for the particular problem from population biology and to compare a stochastic competition model model with a deterministic one. In order to gain better understanding of this theory, several problems were covered:
 1. Stochastic process modelling
 2. Itô's stochastic integral modelling and approximate calculation of its expectations
 3. Obtaining numerical solutions to stochastic differential equation (SDE) using Monte-Carlo simulation
