@@ -68,7 +68,7 @@ plt.plot(time2, proc2, label='step=0.5')
 ```
 ![Brownian bridge 0.5](img/bridge05.png)
 #### 2. Itô's stochastic integrals
-Consider the following It̂o's integral:
+Consider the following Itô's integral:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=I(f)&space;=&space;\int_0^1f(t,&space;W(t))dW(t)&space;=&space;\int_0^1t&space;\cdot&space;e^{W(t)}dW(t)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?I(f)&space;=&space;\int_0^1f(t,&space;W(t))dW(t)&space;=&space;\int_0^1t&space;\cdot&space;e^{W(t)}dW(t)" title="I(f) = \int_0^1f(t, W(t))dW(t) = \int_0^1t \cdot e^{W(t)}dW(t)" /></a>
 
