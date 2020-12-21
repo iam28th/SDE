@@ -19,7 +19,7 @@ then (assuming the necessary assumptions) function F satisfies the following SDE
 Itô's lemma allows us to find closed-form solution to some SDEs and exactly calculate some stochastic integrals.
 
 ### Monte Carlo simulation 
-Monte Carlo simulation is a computational algorithm that relies on random sampling to obtain numerical result. Pseude-random numbers obtained from Numpy generator were used to simulate randomness
+Monte Carlo simulation is a computational algorithm that relies on random sampling to obtain numerical result. Pseude-random numbers obtained from Numpy generator were used to simulate randomness.
 
 ## System requirements
 Most of the project (except population dynamics modelling) was implemented using laptop with the following resources:
